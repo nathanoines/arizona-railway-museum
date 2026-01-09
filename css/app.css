@@ -1,0 +1,593 @@
+/* -------------------------------------------------
+   Global Typography & Defaults
+------------------------------------------------- */
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+}
+
+/* -------------------------------------------------
+   Header / Top Bar
+------------------------------------------------- */
+
+/* Hide brand text on desktop, only logo will show */
+.arm-brand {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Logo sizing for desktop/tablet */
+.arm-logo {
+  height: 50px;
+  width: auto;
+  margin: 0;
+  display: block;
+}
+
+/* Hide desktop logo on phones */
+@media (max-width: 639px) {
+  .arm-logo {
+    display: none;
+  }
+}
+
+/* Mobile logo in title bar */
+.arm-logo-mobile {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+.title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.title-bar .title-bar-title a {
+  display: flex;
+  align-items: center;
+}
+
+.top-bar-wrapper {
+  background: #fefefe;
+}
+
+.top-bar,
+.top-bar > .top-bar-left > ul,
+.top-bar > .top-bar-right > ul {
+  background-color: transparent;
+}
+
+/* Dropdown menus need white background */
+.top-bar .menu.vertical {
+  background-color: #fefefe;
+}
+
+.top-bar .menu.vertical > li > a:hover {
+  background-color: #f5f5f5;
+}
+
+.top-bar {
+  padding: 0;
+  min-height: auto;
+  border: none;
+  box-shadow: none;
+}
+
+/* Desktop header layout: logo + nav left, auth right */
+@media screen and (min-width: 640px) {
+  .top-bar#main-menu .top-bar-left .menu {
+    align-items: center;
+  }
+
+  .top-bar#main-menu .top-bar-left .menu-text {
+    padding: 0;
+  }
+
+  .top-bar#main-menu .top-bar-left .menu-text a {
+    display: flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .top-bar#main-menu .top-bar-right .menu {
+    align-items: center;
+  }
+}
+
+.top-bar .menu > li > a {
+  padding: 0.5rem 0.75rem;
+  color: #004b85;
+}
+
+.top-bar .menu > li > a:hover {
+  color: #0077c8;
+}
+
+/* Vertical alignment for logo */
+.top-bar-left .menu-text a {
+  display: flex;
+  align-items: center;
+}
+
+/* -------------------------------------------------
+   Hero Section
+------------------------------------------------- */
+
+.arm-hero {
+  background: linear-gradient(rgba(0, 61, 115, 0.75), rgba(0, 61, 115, 0.75)), url('/assets/backgrounds/photo-3.jpg') center 100%/cover no-repeat fixed;
+  color: #fff;
+  padding: 3rem 0 4rem;
+}
+
+.arm-hero h1 {
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+}
+
+.arm-hero .lead {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-meta {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.hero-actions .button {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.arm-hero-image img {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  margin-left: auto;
+}
+
+/* Mobile: add gap between hero buttons and image */
+@media screen and (max-width: 639px) {
+  .arm-hero-image {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Mobile: fix background-attachment for iOS/mobile browsers */
+@media screen and (max-width: 639px) {
+  .arm-hero {
+    background: linear-gradient(rgba(0, 61, 115, 0.75), rgba(0, 61, 115, 0.75)), url('/assets/backgrounds/photo-3.jpg') center 70%/cover no-repeat scroll;
+  }
+  .arm-links {
+    background-attachment: scroll !important;
+  }
+}
+
+/* -------------------------------------------------
+   Section Layout
+------------------------------------------------- */
+
+.arm-quick-facts,
+.arm-links {
+  padding: 3rem 0;
+}
+
+.section-intro {
+  max-width: 40rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+  color: #555;
+}
+
+/* -------------------------------------------------
+   Quick Facts Cards
+------------------------------------------------- */
+
+.arm-quick-facts {
+  background: #ffffff;
+}
+
+.arm-quick-facts .card {
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+}
+
+.arm-quick-facts .card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.arm-quick-facts .card .subheader {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Callout + mini gallery */
+.arm-small-gallery .arm-gallery-thumb + .arm-gallery-thumb {
+  margin-top: 0.75rem;
+}
+
+.arm-small-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+/* -------------------------------------------------
+   Explore Links Section
+------------------------------------------------- */
+
+.arm-links {
+  background: #f0f3f7;
+}
+
+.arm-links h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.arm-links .card {
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  height: 100%;
+}
+
+.arm-links .card-section h3 {
+  margin-bottom: 0.75rem;
+}
+
+.arm-links .card-section ul {
+  margin-left: 1.25rem;
+}
+
+.arm-links .card-section ul li + li {
+  margin-top: 0.25rem;
+}
+
+.arm-links .card-section a {
+  text-decoration: none;
+  color: #004b85;
+}
+
+.arm-links .card-section a:hover {
+  text-decoration: underline;
+  color: #0077c8;
+}
+
+.arm-links .card-section a.button {
+  color: #fff;
+}
+
+.arm-links .card-section a.button:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.arm-links .card-section a.arm-nav-link:hover {
+  text-decoration: none;
+}
+
+/* -------------------------------------------------
+   Equipment / Admin Tables
+------------------------------------------------- */
+
+.arm-table-wrapper {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.10);
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+/* Any table you mark as class="arm-table" will use this look */
+table.arm-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.arm-table th,
+table.arm-table td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid #e2e6ea;
+}
+
+table.arm-table th {
+  background: #f5f7fa;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+table.arm-table tbody tr:nth-child(even) {
+  background: #fafbfc;
+}
+
+table.arm-table tbody tr:hover {
+  background: #eef4ff;
+}
+
+
+/* -------------------------------------------------
+   Footer
+------------------------------------------------- */
+
+.arm-footer {
+  background: #0a0a0a;
+  color: #f5f5f5;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+}
+
+.arm-footer-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.arm-last-update {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* -------------------------------------------------
+   Card Styling - Consistent across site
+------------------------------------------------- */
+.arm-card {
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+}
+
+.arm-card h3:first-child {
+  margin-bottom: 1rem;
+}
+
+/* Table in card - responsive overflow */
+.arm-card-table-wrapper {
+  overflow-x: auto;
+  margin: 0 -1rem -1rem -1rem;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.arm-card-table-wrapper table {
+  margin-bottom: 0;
+}
+
+.arm-card-table-wrapper table thead {
+  background: #f8f9fa;
+}
+
+.arm-card-table-wrapper table th,
+.arm-card-table-wrapper table td {
+  padding: 0.75rem;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 39.9375em) {
+  .arm-card {
+    border-radius: 8px;
+  }
+  
+  .arm-card-table-wrapper {
+    margin: 0 -0.5rem -0.5rem -0.5rem;
+  }
+}
+
+/* -------------------------------------------------
+   Equipment Category Jump Cards
+------------------------------------------------- */
+.arm-category-jump {
+  text-decoration: none;
+  display: block;
+}
+
+.arm-category-jump .arm-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.arm-category-jump:focus .arm-card {
+  outline: 2px solid #1779ba;
+  outline-offset: 2px;
+}
+
+/* Mobile adjustments for category cards */
+@media screen and (max-width: 639px) {
+  .arm-category-jump .arm-card {
+    padding: 0.75rem !important;
+  }
+
+  .arm-category-jump h4 {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* -------------------------------------------------
+   Callout Overrides - Softer, Less Boxy
+------------------------------------------------- */
+.callout {
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.callout.primary {
+  background: #e7f4f9;
+  color: #0d5a8c;
+}
+
+.callout.secondary {
+  background: #f5f5f5;
+  color: #555;
+}
+
+.callout.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.callout.warning {
+  background: #fff8e1;
+  color: #000000;
+  border-left: 4px solid #ffb300;
+}
+
+.callout.alert {
+  background: #ffebee;
+  color: #c62828;
+  border-left: 4px solid #ef5350;
+}
+
+/* -------------------------------------------------
+   Label Overrides - Softer, Less Boxy
+------------------------------------------------- */
+span.label {
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 0.25rem 0.65rem;
+}
+
+span.label.primary {
+  background: #1779ba;
+}
+
+span.label.secondary {
+  background: #767676;
+}
+
+span.label.success {
+  background: #3adb76;
+  color: #0a0a0a;
+}
+
+span.label.warning {
+  background: #ffae00;
+  color: #0a0a0a;
+}
+
+span.label.alert {
+  background: #cc4b37;
+}
+
+/* -------------------------------------------------
+   ARM Navigation Link Buttons
+------------------------------------------------- */
+.arm-nav-btn-container {
+  display: inline-flex;
+  align-items: stretch;
+  background: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.arm-nav-btn-container.white-bg {
+  background: #fff;
+}
+
+.arm-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.arm-nav-btn-container > span {
+  display: flex;
+  align-items: center;
+  color: #ddd;
+  margin: 0 -0.75rem;
+  padding: 0 0.75rem;
+}
+
+.arm-nav-link.secondary {
+  color: #666;
+}
+
+.arm-nav-link.secondary:hover {
+  background: #e8e8e8;
+  color: #333;
+}
+
+.arm-nav-link.primary {
+  color: #1779ba;
+}
+
+.arm-nav-link.primary:hover {
+  background: #e7f4f9;
+  color: #0d5a8c;
+}
+
+/* -------------------------------------------------
+   Equipment Roster - Mobile Responsive
+------------------------------------------------- */
+/* Hide table columns on mobile portrait, show only thumbnail, number/name, type, and view link */
+@media screen and (max-width: 639px) and (orientation: portrait) {
+  .arm-card-table-wrapper table thead tr th:not(:first-child):not(:nth-child(3)):not(:nth-child(4)):not(:last-child),
+  .arm-card-table-wrapper table tbody tr td:not(:first-child):not(:nth-child(3)):not(:nth-child(4)):not(:last-child) {
+    display: none;
+  }
+  
+  /* Make thumbnail column narrower */
+  .arm-card-table-wrapper table thead tr th:first-child,
+  .arm-card-table-wrapper table tbody tr td:first-child {
+    width: 70px;
+    padding: 0.5rem !important;
+  }
+  
+  /* Road number column - compress with smaller font */
+  .arm-card-table-wrapper table thead tr th:nth-child(3),
+  .arm-card-table-wrapper table tbody tr td:nth-child(3) {
+    width: auto;
+    font-size: 0.85rem;
+    padding: 0.5rem !important;
+    word-wrap: break-word;
+  }
+  
+  /* Type column */
+  .arm-card-table-wrapper table thead tr th:nth-child(4),
+  .arm-card-table-wrapper table tbody tr td:nth-child(4) {
+    width: auto;
+    font-size: 0.85rem;
+    padding: 0.5rem !important;
+  }
+  
+  /* View link column - narrow */
+  .arm-card-table-wrapper table thead tr th:last-child,
+  .arm-card-table-wrapper table tbody tr td:last-child {
+    width: 70px;
+    padding: 0.5rem !important;
+    font-size: 0.85rem;
+  }
+  
+  /* Make thumbnails slightly smaller on mobile */
+  .arm-card-table-wrapper table tbody tr td:first-child img,
+  .arm-card-table-wrapper table tbody tr td:first-child div {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+

@@ -1,0 +1,41 @@
+# Sensitive configuration
+/config/
+.env
+.env.*
+
+# Database files
+/database/
+
+# Media/uploads (too large for git, deploy separately)
+/audio/
+/images/
+/documents/
+/videos/
+
+# Markdown/notes
+/markdown/
+
+# Server config (contains environment-specific settings)
+.htaccess
+
+# Process/runtime files
+*.pid
+supervisord.pid
+
+# Logs and error files
+*.log
+error_log
+supervisord.log
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Claude Code local settings
+.claude/settings.local.json

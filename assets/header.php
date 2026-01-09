@@ -1,0 +1,249 @@
+<?php
+// Start session only if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Optional: allow pages to override the page title
+if (!isset($page_title)) {
+    $page_title = "Arizona Railway Museum";
+}
+
+// Determine role & admin state
+$userRole = $_SESSION['user_role'] ?? null;   // 'admin' or 'user' or null
+$isAdmin  = ($userRole === 'admin');
+$isKeyHolder = !empty($_SESSION['is_key_holder']);
+$isLoggedIn = isset($_SESSION['user_id']);
+?>
+
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo htmlspecialchars($page_title); ?></title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/foundation.css">
+    <link rel="stylesheet" href="/css/app.css?v=<?php echo time(); ?>">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/gif" href="/images/armlogo2.gif">
+    <style>
+      html, body {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+      }
+      .page-content {
+        flex: 1 0 auto;
+      }
+      .arm-footer {
+        flex-shrink: 0;
+        margin-top: auto;
+      }
+      .title-bar {
+        position: relative;
+        z-index: 10;
+      }
+      /* Mobile menu overlay styling */
+      @media screen and (max-width: 39.9375em) {
+        .header-wrapper {
+          position: relative;
+          z-index: 100;
+        }
+        .title-bar {
+          position: relative;
+          z-index: 2;
+        }
+        .top-bar#main-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          z-index: 1;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+          padding: 0;
+          background-color: #fefefe;
+        }
+        .top-bar#main-menu .top-bar-left,
+        .top-bar#main-menu .top-bar-right {
+          width: 100%;
+        }
+        /* Hide logo in mobile menu */
+        .top-bar#main-menu .top-bar-left .menu-text {
+          display: none;
+        }
+        .top-bar#main-menu .menu {
+          flex-direction: column;
+        }
+        .top-bar#main-menu .menu > li > a {
+          padding: 0.75rem 1rem;
+        }
+        /* Make mobile submenus full width */
+        .top-bar#main-menu .menu > li {
+          position: relative;
+        }
+        .top-bar#main-menu .menu > li > .menu.vertical {
+          display: none;
+          position: relative;
+          width: 100%;
+          left: 0;
+          box-shadow: none;
+          border: none;
+          background: #f4f4f4;
+        }
+        .top-bar#main-menu .menu > li > .menu.vertical > li > a {
+          padding-left: 2rem;
+        }
+        /* Arrow indicator for expandable items */
+        .top-bar#main-menu .menu > li.has-submenu > a::after {
+          content: '';
+          display: inline-block;
+          width: 0;
+          height: 0;
+          margin-left: 0.5rem;
+          vertical-align: middle;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-top: 5px solid currentColor;
+          transition: transform 0.2s ease;
+        }
+        .top-bar#main-menu .menu > li.has-submenu.is-open > a::after {
+          transform: rotate(180deg);
+        }
+      }
+      /* Fixed header for medium and larger screens */
+      @media screen and (min-width: 40em) {
+        .header-wrapper {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 1000;
+          background: #fff;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        body {
+          padding-top: 58px; /* Height of the header */
+        }
+      }
+    </style>
+</head>
+<body>
+
+<!-- Header wrapper for mobile positioning -->
+<div class="header-wrapper">
+  <!-- Mobile title bar / hamburger (small screens only) -->
+  <div class="title-bar show-for-small-only" data-responsive-toggle="main-menu" data-hide-for="medium">
+    <div class="title-bar-left">
+      <button class="menu-icon" type="button" data-toggle></button>
+    </div>
+    <div class="title-bar-title">
+      <a href="/index.php">
+        <img src="/images/armlogo2.gif" alt="Arizona Railway Museum" class="arm-logo-mobile">
+      </a>
+    </div>
+  </div>
+
+  <!-- Desktop/Tablet Top Bar -->
+  <div class="top-bar-wrapper">
+    <div class="top-bar grid-container" id="main-menu">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu data-closing-time="0">
+        <li class="menu-text">
+          <a href="/index.php">
+            <img src="/images/armlogo2.gif" alt="Arizona Railway Museum Logo" class="arm-logo">
+          </a>
+        </li>
+
+        <li><a href="/information">Hours &amp; Admission</a></li>
+
+        <li>
+          <a>Visit</a>
+          <ul class="menu vertical">
+            <li><a href="/events">Events</a></li>
+            <li><a href="https://www.google.com/maps/place/330+E+Ryan+Rd,+Chandler,+AZ+85286" target="_blank" rel="noopener">Directions</a></li>
+            <!-- <li><a href="/trainmap">Arizona RR Map</a></li> -->
+          </ul>
+        </li>
+
+        <li>
+          <a>Collection</a>
+          <ul class="menu vertical">
+            <li><a href="/equipment">Equipment Roster</a></li>
+            <li><a href="/artifacts">Artifact Collection</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <!-- <li><a href="/photos">Photo Collection</a></li> -->
+          </ul>
+        </li>
+
+        <li>
+          <a>Get Involved</a>
+          <ul class="menu vertical">
+            <li><a href="/membership">Membership</a></li>
+            <li><a href="/donations">Donations</a></li>
+            <li><a href="/brochure">Brochure &amp; Newsletter</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a>About</a>
+          <ul class="menu vertical">
+            <li><a href="/mission">Mission</a></li>
+            <li><a href="/founders">Founders &amp; Board</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="top-bar-right">
+      <ul class="dropdown menu" data-dropdown-menu data-closing-time="0">
+        <?php
+        $membershipStatus = $_SESSION['membership_status'] ?? 'inactive';
+        $hasActiveSubscription = in_array($membershipStatus, ['monthly', 'lifetime']);
+        if (!$hasActiveSubscription):
+        ?>
+          <li><a href="/donations" class="button small" style="margin: 0; border-radius: 50px; color: #fff; background: linear-gradient(135deg, #e8a430 0%, #d4881c 100%); box-shadow: 0 2px 8px rgba(232, 164, 48, 0.4); vertical-align: middle;">&#10084; Donate</a></li>
+        <?php endif; ?>
+        <?php if ($isAdmin): ?>
+          <li>
+            <a>Administration</a>
+            <ul class="menu vertical">
+              <li><a href="/admin/">Dashboard</a></li>
+              <li><a href="/admin/membership/">Memberships</a></li>
+              <li><a href="/admin/titles/">Titles</a></li>
+              <li><a href="/admin/equipment/">Equipment</a></li>
+              <li><a href="/admin/events/">Events</a></li>
+              <li><a href="/admin/voting/">Voting</a></li>
+              <li><a href="/admin/activity/">Activity Log</a></li>
+            </ul>
+          </li>
+        <?php endif; ?>
+
+        <?php if ($isLoggedIn): ?>
+          <li>
+            <a>Members</a>
+            <ul class="menu vertical">
+              <li><a href="/members/">Members Area</a></li>
+              <li><a href="/logout.php">Logout</a></li>
+            </ul>
+          </li>
+        <?php else: ?>
+          <li><a href="/login.php">Login</a></li>
+        <?php endif; ?>
+      </ul>
+    </div>
+  </div>
+  </div>
+</div><!-- end header-wrapper -->
+
+<?php include __DIR__ . '/voting_banner.php'; ?>
+
+<div class="page-content">
+<div class="grid-container" style="padding-top: 2.5rem; margin-bottom: 2rem;">

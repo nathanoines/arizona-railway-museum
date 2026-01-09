@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  arizonarm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: arizonarm-app
+    ports:
+      - "4000:80"
+      - "3306:3306"
+    volumes:
+      - ./:/var/www/html
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    restart: unless-stopped
+    networks:
+      - arizonarm-network
+
+volumes:
+  mysql_data:
+    driver: local
+
+networks:
+  arizonarm-network:
+    driver: bridge
