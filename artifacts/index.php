@@ -10,7 +10,7 @@ require_once __DIR__ . '/../assets/header.php';
         <div class="grid-x grid-margin-x align-middle align-right">
             <div class="small-12 medium-8 cell text-right">
                 <h1>Research & Artifact Collection</h1>
-                <p class="lead">Over 52,000 cataloged pieces of railroad history</p>
+                <p class="lead">Over 56,000 cataloged pieces of railroad history</p>
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@ require_once __DIR__ . '/../assets/header.php';
     <div class="small-12 cell">
         <div class="card arm-card" style="background: #e3f2fd;">
             <div class="card-section text-center" style="padding: 2rem;">
-                <h2 style="color: #004b85; margin-bottom: 1rem;">The Arizona Railway Museum currently has over 52,000 cataloged pieces of railroad related artifacts stored in our archives.</h2>
+                <h2 style="color: #004b85; margin-bottom: 1rem;">The Arizona Railway Museum currently has over 56,000 cataloged pieces of railroad related artifacts stored in our archives.</h2>
                 <p style="font-size: 1.1rem;">The collection is available for academic research. However, due to our all-volunteer staffing, <strong>access to the collection is BY APPOINTMENT ONLY.</strong></p>
                 <p style="font-size: 1.1rem; margin-top: 1rem;">We are always interested in donations that will expand our collection.</p>
             </div>
@@ -37,7 +37,7 @@ require_once __DIR__ . '/../assets/header.php';
     <div class="small-12 medium-4 cell">
         <div class="card arm-card text-center">
             <div class="card-section">
-                <h2 style="color: #1779ba; font-size: 3rem; margin-bottom: 0.5rem;">42,324</h2>
+                <h2 style="color: #1779ba; font-size: 3rem; margin-bottom: 0.5rem;">44,784</h2>
                 <h4>2D/3D Artifacts</h4>
                 <p class="text-muted">Lanterns, rule books, tickets, timetables, maps, menus, passes, documents, track tools, and more</p>
             </div>
@@ -47,7 +47,7 @@ require_once __DIR__ . '/../assets/header.php';
     <div class="small-12 medium-4 cell">
         <div class="card arm-card text-center">
             <div class="card-section">
-                <h2 style="color: #1779ba; font-size: 3rem; margin-bottom: 0.5rem;">9,679</h2>
+                <h2 style="color: #1779ba; font-size: 3rem; margin-bottom: 0.5rem;">12,085</h2>
                 <h4>Audio/Visual Materials</h4>
                 <p class="text-muted">Photos, 35mm slides, film, records, recordings, and other media</p>
             </div>
@@ -57,7 +57,7 @@ require_once __DIR__ . '/../assets/header.php';
     <div class="small-12 medium-4 cell">
         <div class="card arm-card text-center">
             <div class="card-section">
-                <h2 style="color: #1779ba; font-size: 3rem; margin-bottom: 0.5rem;">2,135</h2>
+                <h2 style="color: #1779ba; font-size: 3rem; margin-bottom: 0.5rem;">2,344</h2>
                 <h4>Different Sources</h4>
                 <p class="text-muted">Railroads, manufacturers, and organizations represented</p>
             </div>
@@ -123,10 +123,17 @@ require_once __DIR__ . '/../assets/header.php';
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>January 1, 2025</strong></td>
+                                <td><strong>January 1, 2026</strong></td>
+                                <td class="text-right">44,784</td>
+                                <td class="text-right">12,085</td>
+                                <td class="text-right"><strong>56,869</strong></td>
+                                <td class="text-right">2,344</td>
+                            </tr>
+                            <tr>
+                                <td>January 1, 2025</td>
                                 <td class="text-right">42,324</td>
                                 <td class="text-right">9,679</td>
-                                <td class="text-right"><strong>52,003</strong></td>
+                                <td class="text-right">52,003</td>
                                 <td class="text-right">2,135</td>
                             </tr>
                             <tr>
